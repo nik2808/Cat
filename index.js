@@ -35,9 +35,33 @@ const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 const btn5 = document.getElementById("btn5");
 
-document.addEventListener("keydown", function (event) {
-  if (event.keyCode === 38) {
+window.addEventListener("keydown", function (eve) {
+  if (eve.keyCode === 38) {
+    c = c - 1;
+    if (c < 1) {
+      c = 1;
+    }
+  }
+  if (eve.keyCode === 40) {
+    c = c + 1;
+    if (c > 5) {
+      c = 5;
+    }
+  }
+  if (c === 1) {
     btn1.click();
+  }
+  if (c === 2) {
+    btn2.click();
+  }
+  if (c === 3) {
+    btn3.click();
+  }
+  if (c === 4) {
+    btn4.click();
+  }
+  if (c === 5) {
+    btn5.click();
   }
 });
 
