@@ -42,7 +42,9 @@ document.getElementById("app").innerHTML = `
   <div>
     <ul>
       <li><img id="imag" src=${cat_sourc}></li>
-      <li><textarea class="inpt" type="text" id="Txt" value=${cat}>${cat}</textarea></li>
+      <li><textarea class="inpt" type="text" id="Txt" value=${fun(cat)}>${fun(
+  cat
+)}</textarea></li>
     </ul>
   </div>
 </div>
@@ -87,23 +89,23 @@ txt.addEventListener("keypress", function (event) {
     var inp = txt.value;
     if (c === 1) {
       cat = inp;
-      document.getElementById("one").innerHTML = `${inp}`;
+      document.getElementById("one").innerHTML = `${fun(inp)}`;
     }
     if (c === 2) {
       couple = inp;
-      document.getElementById("two").innerHTML = `${inp}`;
+      document.getElementById("two").innerHTML = `${fun(inp)}`;
     }
     if (c === 3) {
       beach = inp;
-      document.getElementById("three").innerHTML = `${inp}`;
+      document.getElementById("three").innerHTML = `${fun(inp)}`;
     }
     if (c === 4) {
       pitch = inp;
-      document.getElementById("four").innerHTML = `${inp}`;
+      document.getElementById("four").innerHTML = `${fun(inp)}`;
     }
     if (c === 5) {
       report = inp;
-      document.getElementById("five").innerHTML = `${inp}`;
+      document.getElementById("five").innerHTML = `${fun(inp)}`;
     }
   }
 });
