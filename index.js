@@ -1,15 +1,17 @@
 // import "./styles.css";
-let ttl = ["a", "b", "c", "d", "e"];
-let srce = ["a", "b", "c", "d", "e"];
-let btnid = ["btn1", "btn2", "btn3", "btn4", "btn5"];
-let tt = ["a", "b", "c", "d", "e"];
+let ttl = ["a", "b", "c", "d", "e"]; //array for storing title;
+let srce = ["a", "b", "c", "d", "e"]; //array for storing source url;
+let btnid = ["btn1", "btn2", "btn3", "btn4", "btn5"]; //array for storing button ids;
+let tt = ["a", "b", "c", "d", "e"]; //array for class of text title;
+let c = 1; //counter to see which button was clicked last;
+
 ttl[0] = " cat.jpeg";
 ttl[1] =
   " a man and a woman trying to cook a meal together in a modern kitchen.jpg";
 ttl[2] = " bali-kelingking-beach-plastic-removal-drive.key";
 ttl[3] = " NextByk Investor Pitch 2022.ppt";
 ttl[4] = " interns-performance-report-may-2022.key";
-let c = 1;
+
 srce[0] =
   "https://images.unsplash.com/photo-1561948955-570b270e7c36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80";
 srce[1] =
@@ -21,6 +23,7 @@ srce[3] =
 srce[4] =
   "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80";
 
+//adding the images and text;
 document.getElementById("app").innerHTML = `
 <div class="container" id="container">
   <div class="lines">
@@ -53,16 +56,17 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-const btn = ["b1", "b2", "b3", "b4", "b5"];
+const btn = ["b1", "b2", "b3", "b4", "b5"]; //array for storing objects of each button;
 
 for (let i = 0; i < 5; i++) {
   btn[i] = document.getElementById(btnid[i]);
 }
 
-const txt = document.getElementById("Txt");
-const img = document.getElementById("imag");
+const txt = document.getElementById("Txt"); //storing object of the text below big image
+const img = document.getElementById("imag"); //storing object of the big image
 
 function fun(str) {
+  //creating dots between title is length exceeds 36
   const n = str.length;
   const max_len = 36;
   const len_half = max_len / 2 - 1;
@@ -75,6 +79,7 @@ function fun(str) {
 }
 
 function def() {
+  //making background and text colors back to default
   for (let i = 0; i < 5; i++) {
     btn[i].style.backgroundColor = "white";
     btn[i].style.color = "black";
@@ -82,9 +87,11 @@ function def() {
 }
 
 function clic() {
+  //click triggered on using up and down arrow keys.
   btn[c - 1].click();
 }
 
+//changing txt and title on pressing enter
 txt.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -94,6 +101,7 @@ txt.addEventListener("keypress", function (event) {
   }
 });
 
+//changing txt and title on clicking any button
 for (let i = 0; i < 5; i++) {
   btn[i].addEventListener("click", function onClick() {
     img.src = srce[i];
@@ -105,19 +113,14 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
+//clicking buttons on using up and down arrow keys.
 document.addEventListener("keydown", function (eve) {
-  if (eve.keyCode === 38) {
+  if (eve.keyCode === 38 && c > 1) {
     c = c - 1;
-    if (c < 1) {
-      c = 1;
-    }
     clic();
   }
-  if (eve.keyCode === 40) {
+  if (eve.keyCode === 40 && c < 5) {
     c = c + 1;
-    if (c > 5) {
-      c = 5;
-    }
     clic();
   }
 });
