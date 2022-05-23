@@ -42,9 +42,7 @@ document.getElementById("app").innerHTML = `
   <div>
     <ul>
       <li><img id="imag" src=${cat_sourc}></li>
-      <li><textarea class="inpt" type="text" id="Txt" value=${fun(cat)}>${fun(
-  cat
-)}</textarea></li>
+      <li><textarea class="inpt" type="text" id="Txt" value=${cat}>${cat}</textarea></li>
     </ul>
   </div>
 </div>
