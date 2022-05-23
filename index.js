@@ -48,6 +48,14 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btn4 = document.getElementById("btn4");
+const btn5 = document.getElementById("btn5");
+const txt = document.getElementById("Txt");
+const img = document.getElementById("imag");
+
 function fun(str) {
   const n = str.length;
   const max_len = 36;
@@ -59,14 +67,6 @@ function fun(str) {
   }
   return str;
 }
-
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-const btn5 = document.getElementById("btn5");
-const txt = document.getElementById("Txt");
-const img = document.getElementById("imag");
 
 function def() {
   btn1.style.backgroundColor = "white";
@@ -80,6 +80,41 @@ function def() {
   btn4.style.color = "black";
   btn5.style.color = "black";
 }
+
+function clic() {
+  if (c === 1) {
+    btn1.click();
+  }
+  if (c === 2) {
+    btn2.click();
+  }
+  if (c === 3) {
+    btn3.click();
+  }
+  if (c === 4) {
+    btn4.click();
+  }
+  if (c === 5) {
+    btn5.click();
+  }
+}
+
+document.addEventListener("keydown", function (eve) {
+  if (eve.keyCode === 38) {
+    c = c - 1;
+    if (c < 1) {
+      c = 1;
+    }
+    clic();
+  }
+  if (eve.keyCode === 40) {
+    c = c + 1;
+    if (c > 5) {
+      c = 5;
+    }
+    clic();
+  }
+});
 
 txt.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
@@ -152,33 +187,3 @@ btn5.addEventListener("click", function onClick() {
   btn5.style.color = "white";
   c = 5;
 });
-
-/*document.addEventListener("keydown", function (eve) {
-  if (eve.keyCode === 38) {
-    c = c - 1;
-    if (c < 1) {
-      c = 1;
-    }
-  }
-  if (eve.keyCode === 40) {
-    c = c + 1;
-    if (c > 5) {
-      c = 5;
-    }
-  }
-  if (c === 1) {
-    btn1.click();
-  }
-  if (c === 2) {
-    btn2.click();
-  }
-  if (c === 3) {
-    btn3.click();
-  }
-  if (c === 4) {
-    btn4.click();
-  }
-  if (c === 5) {
-    btn5.click();
-  }
-});*/
